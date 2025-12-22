@@ -112,6 +112,9 @@ export default function Footer() {
                   <li>
                     <a href="#">Green Steel Certificate Awardee</a>
                   </li>
+                  <li>
+                    <a href="#">Govt Scheme Section</a>
+                  </li>
                 </ul>
               </div>
             </div>

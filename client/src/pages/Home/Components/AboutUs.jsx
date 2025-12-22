@@ -94,6 +94,7 @@ export default function AboutUsSection() {
 
         </div>
        <div className="about-us-btn-wrapper justify-content-center">
+       
   <Link to="/about-industry" className="about-us-btn">
     Read More
   </Link>

@@ -132,7 +132,7 @@ const AIIFAMembershipForm = () => {
 
       <div className="contact-info">
         504, Tower 1, Pearls Omaxe, Netaji Subhash Place, Pitampura, Delhi - 110034<br />
-        Mob: 9810410186 Tel: 011-27351345/47/42725051 E-Mail: aaiifa6@gmail.com
+        Mob: 9810410186 Tel: 011-27351345/47/42725051 E-Mail: aaiifa6@gmail.com,  aiifa.steelex@aaiifa.org
       </div>
 
       <form onSubmit={handleSubmit} className="membership-form">

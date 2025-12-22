@@ -1482,14 +1482,15 @@
 /* Footer Main Styles */
 /* Footer Main Styles */
 .footer-wrap-layout1 {
-  background: #b40303;
+  /* background: #b40303; */
+  background: #004000;
   position: relative;
   overflow: hidden;
 }
 
 .footer-top-layout1 {
   padding: 40px 0 20px;
-  background: #b40303;
+  background: #004000;
   color: #fff;
   position: relative;
 }
@@ -1805,7 +1806,7 @@ header {
 /* ---------------- Topbar Styles ---------------- */
 #topbar-wrap {
   /* background-color: #ff5e14; */
-  background-color: #b40303;
+  background-color: #004000;
   padding: 8px 0;
   color: #fff;
   font-size: 15px;

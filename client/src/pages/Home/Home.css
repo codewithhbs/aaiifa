@@ -821,8 +821,8 @@ text-align: start;
     background: linear-gradient(to right, #B70917, #FF5E14); /* Gradient from brand colors */
     color: #fff;
     border: none;
-    padding: 15px 40px;
-    border-radius: 50px; /* Pill shape */
+    padding: 12px 25px;
+    border-radius: 5px;
     font-size: 18px;
     font-weight: 700;
     text-decoration: none;
@@ -834,6 +834,7 @@ text-align: start;
     background: linear-gradient(to right, #FF5E14, #B70917); /* Reverse gradient on hover */
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(183, 9, 23, 0.6);
+    color: white;
 }
 
 .about-us-btn .text-white {
@@ -1899,8 +1900,8 @@ text-align: start;
 }
  .header-btn .btn-primary{
   /* background-color: #ff5e14; */
-  background-color: #ff5e14;
-  color: #ffffff;
+      background-color: #ffffff;
+    color: #003200;
   padding: 12px 25px;
   border-radius: 5px;
   font-weight: 700;
@@ -1937,3 +1938,59 @@ text-align: start;
   display: flex;
   height: auto;
 }
+
+
+/* our assci  */
+/* Announcement Bar Styling */
+.event-announcement-bar {
+  background: linear-gradient(90deg, #f8f9fa, #e9ecef, #f8f9fa);
+  padding: 10px 20px;
+  border-radius: 50px;
+  display: inline-block;
+  font-size: 0.95rem;
+  color: #333;
+  border: 1px solid #dee2e6;
+  margin-top: 10px;
+  animation: fadeInDown 1s ease-out;
+}
+
+/* Pulse Highlight for the MRAI Logo */
+.featured-event {
+  position: relative;
+  border: 2px solid #007bff; /* AIIFA Theme Color */
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.2);
+  animation: logoPulse 2s infinite;
+}
+
+.featured-event:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
+}
+
+/* Small Badge over the logo */
+.event-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #ff4757;
+  color: white;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+@keyframes logoPulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 123, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* our assci  */
