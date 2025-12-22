@@ -23,7 +23,9 @@ mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => console.log("MongoDB connected successfully"))
   .catch((err) => console.error("MongoDB connection error:", err));
-
+app.get("/", (req, res) => {
+  res.send("AAIIFA API is running");
+});
 app.use("/api/auth", authRoutes);
 app.use("/api/teams", teamRoutes);
 app.use("/api/settings", settingsRoutes);
