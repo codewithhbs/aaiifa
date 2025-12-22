@@ -1,0 +1,115 @@
+.newsletter-section {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  width: 90%;
+  max-width: 1400px;
+  margin: 2rem auto; 
+  padding: 1rem;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 0.25rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #c9302c;
+  margin-bottom: 3rem;
+}
+
+/* --- The Responsive Grid --- */
+.newsletter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem; 
+}
+
+/* --- The Modern Card --- */
+.newsletter-card {
+  background-color: #ffffff;
+  border-radius: 16px; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+    text-decoration: none; 
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newsletter-card:hover {
+  transform: translateY(-8px); 
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Card Image --- */
+.newsletter-image-container {
+  width: 100%;
+  aspect-ratio: 5 / 5; 
+  background-color: #f4f4f4;
+}
+
+.newsletter-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover; 
+}
+
+/* --- Card Caption --- */
+.newsletter-caption {
+
+  padding: 1.25rem 1.5rem;
+  background-color: #ffffff;
+  flex-grow: 1; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.newsletter-caption h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+/* NEWSLETTER PG  */
+.newsletter-sidebar {
+  background: #f9f9f9;
+  border-radius: 10px;
+}
+
+.newsletter-year-list {
+  list-style: none;
+  padding: 0;
+}
+
+.newsletter-year-list li {
+  margin-bottom: 10px;
+}
+
+.newsletter-year-list li a {
+  text-decoration: none;
+  color: #092149;
+  font-weight: 500;
+}
+
+.newsletter-year-list li a:hover {
+  text-decoration: underline;
+}
+
+.subscribe-box {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+.btn-newsletter {
+    color: #fff;
+    background-color: #b40303;
+    border-color: #b40303;
+}
+/* NEWSLETTER PG  */
