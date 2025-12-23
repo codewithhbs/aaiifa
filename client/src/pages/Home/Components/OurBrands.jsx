@@ -7,7 +7,7 @@ const OurBrands = () => {
     { 
       src: "http://hoverbusinessservices.com/cloud/aiifa/media/brand/brand2.png", 
       link: "https://mrai.org.in/events/upcoming-events.html",
-      isFeatured: true,
+      isFeatured: true, // This triggers the highlight
       eventText: "MRAI 2026: Jan 20-22, 2026"
     },
     { src: "/media/about/brand3.jpg" },
@@ -16,13 +16,12 @@ const OurBrands = () => {
     { src: "http://hoverbusinessservices.com/cloud/aiifa/media/brand/brand6.jpg" },
   ];
 
-  // Helper to render the logo item
   const renderBrand = (brand, index, suffix) => {
     const content = (
-      <div className={`brand-logo-inner ${brand.isFeatured ? 'featured-event' : ''}`}>
+      <div className={`brand-logo-inner ${brand.isFeatured ? 'featured-event-card' : ''}`}>
         <img src={brand.src} alt="Brand Logo" className="brand-logo-image" />
         {brand.isFeatured && (
-          <div className="event-badge">IMRC 2026</div>
+          <div className="special-event-badge">IMRC 2026</div>
         )}
       </div>
     );
@@ -43,8 +42,7 @@ const OurBrands = () => {
       <Container>
         <Row className="justify-content-center">
           <Col xs={12} className="text-center mb-4">
-             <h2 className="our-team-title">Associate Partners</h2>
-             {/* Highlighting the announcement below the title */}
+             <h2 className="our-team-title">Associate/Knowledge Partners</h2>
              <div className="event-announcement-bar">
                 🚀 <strong>MRAI 2026:</strong> International Material Recycling Conference & Exposition (#IMRC2026) — Jan 20, 21 & 22, 2026
              </div>
