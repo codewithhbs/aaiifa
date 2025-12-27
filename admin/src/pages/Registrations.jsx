@@ -1,5 +1,7 @@
   import React, { useState, useEffect } from "react";
-  import { Edit2, Trash2, Eye } from "lucide-react";
+  import { Trash2, Eye, Download  } from "lucide-react";
+  import * as XLSX from "xlsx";
+  import { saveAs } from "file-saver";
   import { Helmet } from "react-helmet-async";
   import ConfirmDialog from "../components/DeleteConfirmDialog";
   import toast from "react-hot-toast";
@@ -69,6 +71,158 @@ const confirmDelete = async () => {
 };
 
 
+
+const handleExportExcel = () => {
+  if (!registrations.length) {
+    toast.error("No data to export");
+    return;
+  }
+
+  const headers = [
+    "S.No",
+    "Company Name",
+    "Factory District",
+    "Factory City",
+    "Factory Pin Code",
+    "Factory Mobile",
+    "Factory Phone",
+    "Factory Email 1",
+    "Factory Email 2",
+    "Correspondence District",
+    "Correspondence City",
+    "Correspondence Pin Code",
+    "Correspondence Mobile",
+    "Correspondence Phone",
+    "Correspondence Email 1",
+    "Correspondence Email 2",
+    "Representative Name",
+    "Designation",
+    "Representative Mobile",
+    "Representative Phone",
+    "Representative Email",
+    "GST Number",
+    "Furnace Capacity",
+    "Furnace Make",
+    "Number Of Crucible",
+    "DRI",
+    "Pellet",
+    "Imported Scrap",
+    "Indigenous Scrap",
+    "DRI Manufacturer",
+    "Gas Based",
+    "Coal Based",
+    "Technology",
+    "Annual Capacity",
+    "Pellet Process",
+    "Pellet Annual Capacity",
+    "Rolling Mill Integrated",
+    "Rolling Mill Sister Concern",
+    "Mill Capacity Roughing",
+    "Mill Capacity Intermediate",
+    "Mill Capacity Finishing",
+    "Product TMT",
+    "Product Structure",
+    "Product Other",
+    "Other Product Name",
+    "Brand Name",
+    "Power Connecting Load",
+    "Procurement Self Generating",
+    "Procurement State",
+    "Procurement Open Access",
+    "BIS Certification Mark",
+    "Green Steel Certificate",
+    "Membership No",
+    "Date Of Enrollment",
+    "Submitted At",
+    "Created At"
+  ];
+
+  const rows = registrations.map((item, index) => [
+    index + 1,
+    item.companyName,
+    item.factoryDistrict,
+    item.factoryCity,
+    item.factoryPinCode,
+    item.factoryMobile,
+    item.factoryPhone,
+    item.factoryEmail1,
+    item.factoryEmail2,
+    item.correspondenceDistrict,
+    item.correspondenceCity,
+    item.correspondencePinCode,
+    item.correspondenceMobile,
+    item.correspondencePhone,
+    item.correspondenceEmail1,
+    item.correspondenceEmail2,
+    item.representativeName,
+    item.designation,
+    item.representativeMobile,
+    item.representativePhone,
+    item.representativeEmail,
+    item.gstNumber,
+    item.furnaceCapacity,
+    item.furnaceMake,
+    item.numberOfCrucible,
+    item.dri,
+    item.pellet,
+    item.importedScrap,
+    item.indigenousScrap,
+    item.driManufacturer,
+    item.processRouteGasBased ? "YES" : "NO",
+    item.processRouteCoalBased ? "YES" : "NO",
+    item.technology,
+    item.annualCapacity,
+    item.pelletProcess,
+    item.pelletAnnualCapacity,
+    item.rollingMillIntegrated ? "YES" : "NO",
+    item.rollingMillSisterConcern ? "YES" : "NO",
+    item.millCapacityRoughing,
+    item.millCapacityIntermediate,
+    item.millCapacityFinishing,
+    item.productTMT ? "YES" : "NO",
+    item.productStructure ? "YES" : "NO",
+    item.productOther ? "YES" : "NO",
+    item.otherProductName,
+    item.brandName,
+    item.powerConnectingLoad,
+    item.procurementSelfGenerating ? "YES" : "NO",
+    item.procurementState ? "YES" : "NO",
+    item.procurementOpenAccess ? "YES" : "NO",
+    item.bisCertificationMark,
+    item.greenSteelCertificate,
+    item.membershipno,
+    item.dateOfEnrollment
+      ? new Date(item.dateOfEnrollment).toLocaleDateString()
+      : "",
+    item.submittedAt
+      ? new Date(item.submittedAt).toLocaleString()
+      : "",
+    item.createdAt
+      ? new Date(item.createdAt).toLocaleString()
+      : "",
+  ]);
+
+  const csvContent =
+    headers.join(",") +
+    "\n" +
+    rows.map(row =>
+      row.map(val => `"${val ?? ""}"`).join(",")
+    ).join("\n");
+
+  const blob = new Blob([csvContent], {
+    type: "text/csv;charset=utf-8;",
+  });
+
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `AIIFA_Memberships_${Date.now()}.csv`;
+  link.click();
+};
+
+
+
+
     return (
       <div className="p-6">
         <Helmet>
@@ -79,9 +233,19 @@ const confirmDelete = async () => {
 
         {/* Table */}
         <div className="bg-white shadow-md rounded-xl p-6">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-medium text-gray-700">All Memberships</h2>
-          </div>
+         <div className="flex items-center justify-between mb-4">
+          <h2 className="text-lg font-medium text-gray-700">All Memberships</h2>
+
+           <button
+            onClick={handleExportExcel}
+            className="bg-[#AD0000] hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium flex items-center gap-2"
+          >
+            <Download size={16} className="stroke-[2.5]" />
+            Export
+          </button>
+
+        </div>
+
 
           <div className="overflow-x-auto">
             <table className="min-w-full border-collapse">
@@ -104,19 +268,6 @@ const confirmDelete = async () => {
                     <td className="px-4 py-3">{reg.companyName}</td>
                     <td className="px-4 py-3">{reg.factoryCity}</td> 
                     <td className="px-4 py-3">{reg.factoryMobile}</td> 
-                    {/* <td className="px-4 py-3">
-                      <label className="inline-flex items-center cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked={reg.status ?? true}
-                          onChange={() => toggleStatus(reg._id)}
-                          className="sr-only peer"
-                        />
-                        <div className="relative w-10 h-5 bg-gray-300 rounded-full peer peer-checked:bg-green-500 transition">
-                          <span className="absolute left-0.5 top-0.5 h-4 w-4 bg-white rounded-full transition-transform duration-300 peer-checked:translate-x-5"></span>
-                        </div>
-                      </label>
-                    </td> */}
                     <td className="px-4 py-3 text-center">
                       <button
                         onClick={() => setSelectedMembership(reg)}

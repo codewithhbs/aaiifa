@@ -1,5 +1,5 @@
   import React, { useState, useEffect } from "react";
-  import { Edit2, Trash2, Eye } from "lucide-react";
+  import { Edit2, Trash2, Eye, Download  } from "lucide-react";
   import { Helmet } from "react-helmet-async";
   import ConfirmDialog from "../components/DeleteConfirmDialog";
   import toast from "react-hot-toast";
@@ -67,6 +67,51 @@ const confirmDelete = async () => {
 };
 
 
+const handleExportExcel = () => {
+  if (!registrations.length) {
+    toast.error("No contacts to export");
+    return;
+  }
+
+  const headers = [
+    "S.No",
+    "Name",
+    "Phone",
+    "Email",
+    "Message",
+    "Created At",
+  ];
+
+  const rows = registrations.map((item, index) => [
+    index + 1,
+    item.name || "",
+    item.phone || "",
+    item.email || "",
+    item.message || "",
+    item.createdAt
+      ? new Date(item.createdAt).toLocaleString()
+      : "",
+  ]);
+
+  const csvContent =
+    headers.join(",") +
+    "\n" +
+    rows
+      .map(row => row.map(v => `"${v}"`).join(","))
+      .join("\n");
+
+  const blob = new Blob([csvContent], {
+    type: "text/csv;charset=utf-8;",
+  });
+
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `Contact_Enquiries_${Date.now()}.csv`;
+  link.click();
+};
+
+
     return (
       <div className="p-6">
         <Helmet>
@@ -78,7 +123,14 @@ const confirmDelete = async () => {
         {/* Table */}
         <div className="bg-white shadow-md rounded-xl p-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-medium text-gray-700">All Memberships</h2>
+            <h2 className="text-lg font-medium text-gray-700">All Contacts</h2>
+            <button
+                onClick={handleExportExcel}
+                className="bg-[#AD0000] hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium flex items-center gap-2"
+              >
+                <Download size={16} className="stroke-[2.5]" />
+                Export
+              </button>
           </div>
 
           <div className="overflow-x-auto">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Trash2, Eye } from "lucide-react";
+import { Trash2, Eye, Download  } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import ConfirmDialog from "../components/DeleteConfirmDialog";
 import toast from "react-hot-toast";
@@ -66,6 +66,57 @@ export default function Registrations() {
     }
   };
 
+
+const handleExportExcel = () => {
+  if (!registrations.length) {
+    toast.error("No data to export");
+    return;
+  }
+
+  const headers = [
+    "S.No",
+    "First Name",
+    "Last Name",
+    "Phone",
+    "Email",
+    "Address",
+    "Message",
+    "Created At",
+  ];
+
+  const rows = registrations.map((item, index) => [
+    index + 1,
+    item.firstName || "",
+    item.lastName || "",
+    item.phone || "",
+    item.email || "",
+    item.address || "",
+    item.message || "",
+    item.createdAt
+      ? new Date(item.createdAt).toLocaleString()
+      : "",
+  ]);
+
+  const csvContent =
+    headers.join(",") +
+    "\n" +
+    rows
+      .map(row => row.map(v => `"${v}"`).join(","))
+      .join("\n");
+
+  const blob = new Blob([csvContent], {
+    type: "text/csv;charset=utf-8;",
+  });
+
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `Steel_Handbook_Queries_${Date.now()}.csv`;
+  link.click();
+};
+
+
+
   return (
     <div className="p-6">
       <Helmet>
@@ -82,6 +133,13 @@ export default function Registrations() {
           <h2 className="text-lg font-medium text-gray-700">
             All Steel Handbook Queries
           </h2>
+            <button
+                onClick={handleExportExcel}
+                className="bg-[#AD0000] hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium flex items-center gap-2"
+              >
+                <Download size={16} className="stroke-[2.5]" />
+                Export
+              </button>
         </div>
 
         <div className="overflow-x-auto">
