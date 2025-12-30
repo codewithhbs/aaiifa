@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import {
@@ -13,44 +13,27 @@ import {
 } from "react-icons/fa";
 
 export default function Header() {
-  const [forceMobileMenu, setForceMobileMenu] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
 
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const toggleMenu = () => setMobileMenuOpen((prev) => !prev);
+  const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
-  /* ✅ HANDLE TV + ZOOM */
-  useEffect(() => {
+  React.useEffect(() => {
     const handleResize = () => {
-      const effectiveWidth = window.innerWidth * window.devicePixelRatio;
-
-      setForceMobileMenu(effectiveWidth < 1600);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  /* ✅ AUTO-CLOSE MENU ON RESIZE */
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 991 && !forceMobileMenu) {
+      if (window.innerWidth > 991 && mobileMenuOpen) {
         setMobileMenuOpen(false);
       }
     };
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [forceMobileMenu]);
+  }, [mobileMenuOpen]);
 
   const toggleDropdown = (name) => {
     setOpenDropdown(openDropdown === name ? null : name);
   };
-
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -81,7 +64,7 @@ export default function Header() {
     //     { name: "2016 Newsletter", href: "/newsletter-2016" },
     //   ],
     // },
-    { name: "Newsletter", href: "/newsletter", isFlashy: true },
+   { name: "Newsletter", href: "/newsletter", isFlashy: true },
 
 
     {
@@ -137,21 +120,18 @@ export default function Header() {
                 </div>
               </div>
             </Col>
-            <Col xs={12} md={2} xl={3} className="single-item">
-              <div className="header-btn">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8mtYOUJoZu0vTAsc_sFm4ovsWDNfi6OZ8_cSVgnWmxj1ytw/viewform" target="_black" className="btn-primary d-none d-lg-inline-block">
+            <Col xs={12} md={2} xl={3}  className="single-item">
+            <div className="header-btn">
+               <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8mtYOUJoZu0vTAsc_sFm4ovsWDNfi6OZ8_cSVgnWmxj1ytw/viewform" target="_black" className="btn-primary d-none d-lg-inline-block">
                   Enlist Your Company Here
                 </a>
                 <button
-  onClick={toggleMenu}
-  className={`mobile-menu-toggle ${
-    forceMobileMenu ? "d-inline-block" : "d-lg-none"
-  }`}
->
-  {mobileMenuOpen ? <FaTimes /> : <FaBars />}
-</button>
-
-              </div>
+                  onClick={toggleMenu}
+                  className="mobile-menu-toggle d-lg-none"
+                >
+                  {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+                </button>
+                </div>
             </Col>
           </Row>
         </Container>
@@ -169,12 +149,7 @@ export default function Header() {
             </Col>
 
             {/* Desktop Menu */}
-            <Col
-  lg="6"
-  className={`${forceMobileMenu ? "d-none" : "d-none d-lg-block"} text-center`}
->
-
-
+            <Col lg="6" className="d-none d-lg-block text-center">
               <nav className="template-main-menu">
                 <ul className="nav-list">
                   {navLinks.map((link) =>
@@ -198,12 +173,13 @@ export default function Header() {
                     ) : (
                       <li key={link.name}>
                         <a
-                          href={link.href}
-                          className={`${currentPath === link.href ? "active" : ""} ${link.isFlashy ? "flashy-newsletter" : ""
-                            }`}
-                        >
-                          {link.name}
-                        </a>
+  href={link.href}
+  className={`${currentPath === link.href ? "active" : ""} ${
+    link.isFlashy ? "flashy-newsletter" : ""
+  }`}
+>
+  {link.name}
+</a>
 
                       </li>
                     )
@@ -219,14 +195,11 @@ export default function Header() {
                   Become A Member
                 </a>
                 <button
-  onClick={toggleMenu}
-  className={`mobile-menu-toggle ${
-    forceMobileMenu ? "d-inline-block" : "d-lg-none"
-  }`}
->
-  {mobileMenuOpen ? <FaTimes /> : <FaBars />}
-</button>
-
+                  onClick={toggleMenu}
+                  className="mobile-menu-toggle d-lg-none"
+                >
+                  {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+                </button>
               </div>
             </Col>
 
@@ -242,30 +215,34 @@ export default function Header() {
                 link.dropdown ? (
                   <li key={link.name} className="mobile-dropdown">
                     <span
-                      className={`dropdown-title ${isDropdownActive(link.items) ? "active" : ""
-                        }`}
+                      className={`dropdown-title ${
+                        isDropdownActive(link.items) ? "active" : ""
+                      }`}
                       onClick={() => toggleDropdown(link.name)}
                     >
                       {link.name}
                       <FaChevronDown
-                        className={`dropdown-icon ${openDropdown === link.name ? "rotate" : ""
-                          }`}
+                        className={`dropdown-icon ${
+                          openDropdown === link.name ? "rotate" : ""
+                        }`}
                       />
                     </span>
 
                     <ul
-                      className={`mobile-submenu ${openDropdown === link.name ? "open" : ""
-                        }`}
+                      className={`mobile-submenu ${
+                        openDropdown === link.name ? "open" : ""
+                      }`}
                     >
                       {link.items.map((item) => (
                         <li key={item.name}>
-                          <a
-                            href={link.href}
-                            className={`${currentPath === link.href ? "active" : ""} ${link.isFlashy ? "flashy-newsletter" : ""
-                              }`}
-                          >
-                            {link.name}
-                          </a>
+                         <a
+  href={link.href}
+  className={`${currentPath === link.href ? "active" : ""} ${
+    link.isFlashy ? "flashy-newsletter" : ""
+  }`}
+>
+  {link.name}
+</a>
 
                         </li>
                       ))}

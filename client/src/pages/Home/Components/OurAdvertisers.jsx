@@ -4,28 +4,38 @@ import { Container, Row, Col } from "react-bootstrap";
 const OurAdvertisers = () => {
   const advertisers = [
     {
-      logo: "/media/asso-logo/electrotherm.png",
+      logo: "/media/advertisers-logo/electrotherm.png",
       pdf: "https://hoverbusinessservices.com/cloud/aiifa/advertisers/electrotherm-advt-page.pdf",
       name: "Electrotherm",
     },
     {
-      logo: "/media/asso-logo/electrotherm.png",
-      pdf: "https://hoverbusinessservices.com/cloud/aiifa/advertisers/electrotherm-advt-page.pdf",
+      logo: "/media/advertisers-logo/manglam.png",
+      pdf: "media/advertiser-pdfs/manglam.pdf",
       name: "Electrotherm",
     },
     {
-      logo: "/media/asso-logo/electrotherm.png",
-      pdf: "https://hoverbusinessservices.com/cloud/aiifa/advertisers/electrotherm-advt-page.pdf",
+      logo: "/media/advertisers-logo/saru.png",
+      pdf: "media/advertiser-pdfs/saru.pdf",
       name: "Electrotherm",
     },
     {
-      logo: "/media/asso-logo/electrotherm.png",
-      pdf: "https://hoverbusinessservices.com/cloud/aiifa/advertisers/electrotherm-advt-page.pdf",
+      logo: "/media/advertisers-logo/bhardwaj.png",
+      pdf: "media/advertiser-pdfs/bhardwaj.pdf",
       name: "Electrotherm",
     },
     {
-      logo: "/media/asso-logo/electrotherm.png",
-      pdf: "https://hoverbusinessservices.com/cloud/aiifa/advertisers/electrotherm-advt-page.pdf",
+      logo: "/media/advertisers-logo/elektromag.png",
+      pdf: "media/advertiser-pdfs/elektromag.pdf",
+      name: "Electrotherm",
+    },
+    {
+      logo: "/media/advertisers-logo/ars.png",
+      pdf: "media/advertiser-pdfs/ars.pdf",
+      name: "Electrotherm",
+    },
+    {
+      logo: "/media/advertisers-logo/elite.png",
+      pdf: "media/advertiser-pdfs/elite.pdf",
       name: "Electrotherm",
     },
   ];
