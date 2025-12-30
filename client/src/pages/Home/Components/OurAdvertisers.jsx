@@ -38,6 +38,11 @@ const OurAdvertisers = () => {
       pdf: "media/advertiser-pdfs/elite.pdf",
       name: "Electrotherm",
     },
+    {
+      logo: "/media/advertisers-logo/transformer-taril.png",
+      pdf: "media/advertiser-pdfs/transformer-taril.pdf",
+      name: "Electrotherm",
+    },
   ];
 
   return (

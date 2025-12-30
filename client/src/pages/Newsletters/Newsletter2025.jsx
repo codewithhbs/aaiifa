@@ -12,7 +12,7 @@ const newsletterData = [
   {
     id: 'nov',
     title: 'Nov Newsletter 2025', 
-    imageUrl: 'http://hoverbusinessservices.com/cloud/aiifa/media/newsletters/2025/9.jpg',
+    imageUrl: 'https://hoverbusinessservices.com/cloud/aiifa/media/newsletters/2025/dec-10.jpg',
     linkUrl: 'https://hoverbusinessservices.com/cloud/aiifa/newsletters/2025/AIIFA-Newsletter-Nov-2025.pdf',
   },
   {

@@ -63,7 +63,7 @@ export default function Newsletter() {
             </h2>
 
             <iframe
-              src="https://hoverbusinessservices.com/cloud/aiifa/newsletters/2025/AIIFA-Newsletter-Nov-2025.pdf"
+              src="https://hoverbusinessservices.com/cloud/aiifa/newsletters/2025/AIIFA-Newsletter-Dec-2025_compressed.pdf"
               width="100%"
               height="700px"
               title="Current Newsletter"
