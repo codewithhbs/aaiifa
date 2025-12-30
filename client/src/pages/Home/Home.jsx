@@ -20,8 +20,8 @@ export default function Home() {
        <OurEventsSection />
        <OurStrategySection />
        {/* <Testimonials /> */}
-        <OurBrands />
         <OurAdvertisers />
+        <OurBrands />
      </>
   )
 }

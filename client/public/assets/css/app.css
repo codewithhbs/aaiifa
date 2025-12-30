@@ -10369,3 +10369,26 @@ ease;
     color: #ff5000;
     }   
 /* newsletter  */
+.menu-layout1 > .container-fluid {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+@media (min-width: 1600px) {
+  .template-main-menu .nav-list {
+    gap: 20px;
+  }
+
+  .logo-img {
+    max-width: 260px;
+  }
+}
+.mobile-menu {
+  right: -100%;
+}
+.mobile-menu.open {
+  right: 0;
+}
+.menu-layout1 > .container-fluid {
+  max-width: 1600px;
+  margin: 0 auto;
+}
