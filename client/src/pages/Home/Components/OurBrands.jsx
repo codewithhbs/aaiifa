@@ -10,7 +10,9 @@ const OurBrands = () => {
       isFeatured: true, // This triggers the highlight
       eventText: "MRAI 2026: Jan 20-22, 2026"
     },
-    { src: "/media/about/brand3.jpg" },
+    { src: "/media/about/brand3.jpg",
+      link: "https://nisst.org/",
+     },
     { src: "http://hoverbusinessservices.com/cloud/aiifa/media/brand/brand4.png" },
     { src: "http://hoverbusinessservices.com/cloud/aiifa/media/brand/brand5.png" },
     { src: "http://hoverbusinessservices.com/cloud/aiifa/media/brand/brand6.jpg" },

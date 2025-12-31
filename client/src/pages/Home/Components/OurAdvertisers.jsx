@@ -10,38 +10,38 @@ const OurAdvertisers = () => {
     },
     {
       logo: "/media/advertisers-logo/manglam.png",
-      pdf: "media/advertiser-pdfs/manglam.pdf",
-      name: "Electrotherm",
+      pdf: "https://hoverbusinessservices.com/cloud/aiifa/media/advertiser-pdfs/manglam.pdf",
+      name: "Manglam Electricals",
     },
     {
       logo: "/media/advertisers-logo/saru.png",
-      pdf: "media/advertiser-pdfs/saru.pdf",
-      name: "Electrotherm",
+      pdf: "https://hoverbusinessservices.com/cloud/aiifa/media/advertiser-pdfs/saru.pdf",
+      name: "Saru Alkoh",
     },
     {
       logo: "/media/advertisers-logo/bhardwaj.png",
-      pdf: "media/advertiser-pdfs/bhardwaj.pdf",
-      name: "Electrotherm",
+      pdf: "https://hoverbusinessservices.com/cloud/aiifa/media/advertiser-pdfs/bhardwaj.pdf",
+      name: "Bhardwaj",
     },
     {
       logo: "/media/advertisers-logo/elektromag.png",
-      pdf: "media/advertiser-pdfs/elektromag.pdf",
-      name: "Electrotherm",
+      pdf: "https://hoverbusinessservices.com/cloud/aiifa/media/advertiser-pdfs/elektromag.pdf",
+      name: "Elektromag",
     },
     {
       logo: "/media/advertisers-logo/ars.png",
-      pdf: "media/advertiser-pdfs/ars.pdf",
-      name: "Electrotherm",
+      pdf: "https://hoverbusinessservices.com/cloud/aiifa/media/advertiser-pdfs/ars.pdf",
+      name: "Ars Green Steel",
     },
     {
       logo: "/media/advertisers-logo/elite.png",
-      pdf: "media/advertiser-pdfs/elite.pdf",
-      name: "Electrotherm",
+      pdf: "https://hoverbusinessservices.com/cloud/aiifa/media/advertiser-pdfs/elite.pdf",
+      name: "Elite Cranes",
     },
     {
       logo: "/media/advertisers-logo/transformer-taril.png",
-      pdf: "media/advertiser-pdfs/transformer-taril.pdf",
-      name: "Electrotherm",
+      pdf: "https://hoverbusinessservices.com/cloud/aiifa/media/advertiser-pdfs/transformer-taril.pdf",
+      name: "Taril",
     },
   ];
 
